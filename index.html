@@ -585,16 +585,6 @@ h2{
     </div>
   </section>
 
-  <section class="section gallery-section">
-    <div class="inner reveal">
-      <h2>MIS FOTOS</h2>
-      <div class="small">ALGUNOS MOMENTOS ESPECIALES</div>
-      <div class="gallery" id="gallery"></div>
-    </div>
-  </section>
-
-  <div class="space"></div>
-
   <section class="section metal">
     <div class="inner reveal">
       <div class="icon">
@@ -645,13 +635,7 @@ const CONFIG = {
   cbu: "0000003100051489935378",
   fechaLimite: "30 DE SEPTIEMBRE 2026",
   whatsapp: "5492213516687",
-  mensajeWhatsApp: "Hola! Confirmo mi asistencia a los XV de Brisa.",
-  gallery: [
-    "bri 2.png",
-    "bri 3.png",
-    "bri chiquita.png",
-    "brisa vestido violeta 1.png"
-  ]
+  mensajeWhatsApp: "Hola! Confirmo mi asistencia a los XV de Brisa."
 };
 
 for(let i=0;i<28;i++){
@@ -705,25 +689,6 @@ songBtn.addEventListener("click",()=>{
   const s=song.value.trim();
   const a=artist.value.trim();
   songFeedback.textContent=s ? "¡Gracias! "+s+(a?" — "+a:"") : "Escribí una canción.";
-});
-
-CONFIG.gallery.forEach((src,i)=>{
-  const wrap=document.createElement("div");
-  wrap.className="photo";
-  if(src){
-    const img=document.createElement("img");
-    img.src=src;
-    img.alt="Foto "+(i+1);
-    img.loading="lazy";
-    img.addEventListener("click",()=>{
-      lightboxImg.src=src;
-      lightbox.classList.add("open");
-    });
-    wrap.appendChild(img);
-  }else{
-    wrap.textContent="FOTO "+String(i+1).padStart(2,"0");
-  }
-  gallery.appendChild(wrap);
 });
 
 lightboxClose.addEventListener("click",()=>lightbox.classList.remove("open"));
