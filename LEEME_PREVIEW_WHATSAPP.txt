@@ -1,0 +1,31 @@
+MEJORA DE VISTA PREVIA PARA WHATSAPP
+
+Ya dejé agregado en index.html:
+- meta title y description
+- etiquetas Open Graph (og:*)
+- etiquetas Twitter Card
+- imagen preview.jpg para la tarjeta previa
+
+IMPORTANTE
+1) Subí TODOS los archivos al repositorio, incluido preview.jpg.
+2) Si mantenés la URL actual, no hace falta cambiar nada más.
+3) Si cambiás el nombre del repositorio (por ejemplo a mis-xv-brisa), editá estas líneas en index.html:
+   - og:url
+   - og:image
+   - og:image:secure_url
+   - twitter:image
+   y reemplazá la URL vieja por la nueva.
+
+PARA QUE SE VEA MEJOR EL LINK
+- Lo ideal es renombrar el repositorio a algo más prolijo:
+  mis-xv-brisa
+  brisa15
+  misxvbrisa
+
+EJEMPLO
+https://batansucho-glitch.github.io/mis-xv-brisa/
+
+SI WHATSAPP SIGUE MOSTRANDO LA PREVIA VIEJA
+- Esperá unos minutos y volvés a compartir.
+- O compartí con un parámetro temporal:
+  https://batansucho-glitch.github.io/mis-xv-brisa/?v=2
