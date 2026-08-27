@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV - Brisa</title>
+
+<style>
+:root{
+  --blanco:#fff;
+  --gris:#777;
+  --gris-claro:#9a9a9a;
+  --negro:#111;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#efefef;
+  color:var(--gris);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.invite{
+  width:min(100%,1080px);
+  margin:0 auto;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 0 32px rgba(0,0,0,.14);
+}
+.section{
+  position:relative;
+  min-height:500px;
+  padding:64px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+.inner{
+  width:100%;
+  max-width:760px;
+  position:relative;
+  z-index:2;
+}
+.white{background:#fff}
+.metal{
+  color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.18)),
+    url("MANCHA.jpeg") center/cover no-repeat;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.space{height:52px;background:#fff}
+
+
+.metal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(
+      125deg,
+      rgba(255,255,255,.018) 0 2px,
+      rgba(0,0,0,.018) 2px 4px
+    );
+  opacity:.45;
+}
+.metal > .inner{
+  position:relative;
+  z-index:2;
+}
+
+/* PORTADA */
+.hero{
+  min-height:960px;
+  color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.12)),
+    url("fondo_bolas_limpio.jpg") center/cover no-repeat;
+}
+.hero-copy{transform:translateY(10px)}
+.hero-line{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:22px;
+  font-size:clamp(64px,9vw,110px);
+  line-height:.9;
+  white-space:nowrap;
+}
+.hero-line .mis{font-weight:300}
+.hero-line .xv{font-weight:900}
+.hero-name{
+  margin-top:28px;
+  font-size:clamp(60px,8.5vw,104px);
+  font-weight:300;
+  line-height:.95;
+  text-transform:uppercase;
+}
+
+/* FRASE */
+.statement{min-height:440px}
+.rule{
+  width:78%;
+  height:2px;
+  margin:0 auto 28px;
+  background:currentColor;
+}
+.rule.bottom{margin:28px auto 0}
+.statement-text{
+  font-size:clamp(27px,4vw,43px);
+  font-weight:300;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+.statement-text strong{font-weight:800}
+
+/* ICONOS */
+.icon{
+  width:90px;height:90px;
+  margin:0 auto 18px;
+}
+.icon-calendar,
+.icon-gift,
+.icon-song{
+  animation:iconFloat 3.2s ease-in-out infinite;
+  transform-origin:center;
+}
+.icon-gift{animation-delay:.45s}
+.icon-song{animation-delay:.9s}
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-7px) rotate(2deg)}
+}
+.icon svg{
+  width:100%;height:100%;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+h2{
+  font-size:clamp(34px,4.8vw,48px);
+  font-weight:300;
+  line-height:1.08;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.big-data{
+  font-size:clamp(29px,4.2vw,43px);
+  font-weight:300;
+  line-height:1.22;
+}
+.time{
+  margin-top:24px;
+  font-size:clamp(28px,4vw,40px);
+  font-weight:300;
+}
+.location{
+  font-size:clamp(30px,4.7vw,46px);
+  line-height:1.15;
+  text-transform:uppercase;
+  font-weight:300;
+}
+.small{
+  font-size:clamp(18px,2.4vw,24px);
+  font-weight:300;
+  line-height:1.45;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:235px;
+  padding:13px 27px;
+  margin-top:20px;
+  border:2px solid currentColor;
+  border-radius:10px;
+  background:transparent;
+  color:inherit;
+  font-size:clamp(17px,2.2vw,23px);
+  font-weight:300;
+  text-transform:uppercase;
+  transition:.2s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.gray{background:#fff;color:#7d7d7d;border-color:#7d7d7d}
+.btn.whitebtn{background:#fff;color:#7d7d7d;border-color:#fff}
+
+/* CONTADOR */
+.countdown{
+  max-width:640px;
+  margin:32px auto 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.counter{
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:9px;
+  padding:14px 4px;
+}
+.counter strong{
+  display:block;
+  font-size:clamp(25px,3.5vw,35px);
+  font-weight:400;
+}
+.counter span{
+  display:block;
+  margin-top:4px;
+  font-size:10px;
+}
+
+/* BANDA */
+.disco-band{
+  min-height:320px;
+  background:
+    linear-gradient(rgba(0,0,0,.16),rgba(0,0,0,.16)),
+    url("MANCHA.jpeg") center/cover no-repeat;
+}
+
+/* DRESS */
+.dress-type{
+  margin-top:8px;
+  font-size:clamp(20px,3vw,29px);
+  font-weight:300;
+  text-transform:uppercase;
+}
+
+/* REGALOS */
+.gift-copy{
+  width:min(100%,700px);
+  margin:0 auto;
+  font-size:clamp(20px,2.9vw,29px);
+  line-height:1.45;
+  font-weight:300;
+  text-transform:uppercase;
+}
+.account-box{
+  display:none;
+  width:min(100%,540px);
+  margin:24px auto 0;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+}
+.account-box.open{display:block}
+.account-box .label{
+  margin-top:10px;
+  font-size:12px;
+  letter-spacing:.14em;
+}
+.account-box .value{
+  margin-top:5px;
+  font-size:18px;
+  font-weight:600;
+  word-break:break-word;
+}
+
+/* PLAYLIST */
+.playlist{
+  max-width:540px;
+  margin:25px auto 0;
+  display:grid;
+  gap:12px;
+}
+.playlist input{
+  width:100%;
+  padding:14px 16px;
+  border:1.5px solid #aaa;
+  border-radius:10px;
+  background:#fff;
+  color:#666;
+  outline:none;
+}
+.playlist input:focus{border-color:#555}
+.feedback{min-height:21px;margin-top:10px;font-size:14px}
+
+/* GALERÍA */
+.gallery-section{
+  color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.34)),
+    url("fondo_bolas_limpio.jpg") center/cover no-repeat;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:26px;
+}
+.photo{
+  aspect-ratio:1/1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(0,0,0,.12);
+  color:#fff;
+  font-size:18px;
+}
+.photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:.2s ease;
+}
+.photo:hover img{transform:scale(1.015)}
+
+/* CONFIRM */
+.deadline{
+  margin-top:20px;
+  font-size:clamp(19px,3vw,28px);
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+/* CIERRE */
+.end{
+  min-height:600px;
+  background:
+    linear-gradient(rgba(0,0,0,.16),rgba(0,0,0,.16)),
+    url("PULSERA.jpeg") center/cover no-repeat;
+}
+.end-copy{
+  font-size:clamp(58px,8.5vw,96px);
+  font-weight:300;
+  text-transform:uppercase;
+}
+
+/* AUDIO */
+.music-btn{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:90;
+  width:56px;height:56px;
+  border-radius:50%;
+  border:1px solid #999;
+  background:#fff;
+  color:#777;
+  box-shadow:0 4px 18px rgba(0,0,0,.18);
+}
+.music-btn.playing{background:#666;color:#fff}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.94);
+  padding:18px;
+}
+.lightbox.open{display:flex}
+.lightbox img{
+  max-width:96vw;
+  max-height:94vh;
+  width:auto;height:auto;
+  object-fit:contain;
+}
+.lightbox-close{
+  position:absolute;
+  top:15px;right:20px;
+  border:0;background:none;color:#fff;
+  font-size:42px;
+}
+
+
+.statement-text,
+.big-data,
+.time,
+.location,
+.gift-copy,
+.deadline,
+.end-copy{
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+.section{
+  background-clip:padding-box;
+}
+
+/* animación */
+.reveal{opacity:0;transform:translateY(16px);transition:.6s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* Brillitos decorativos */
+.sparkles{
+  position:fixed;
+  inset:0;
+  z-index:80;
+  overflow:hidden;
+  pointer-events:none;
+}
+.sparkle{
+  position:absolute;
+  width:var(--size);
+  height:var(--size);
+  left:var(--left);
+  top:var(--top);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 8px 2px rgba(255,255,255,.85);
+  opacity:0;
+  animation:sparkleTwinkle var(--duration) ease-in-out var(--delay) infinite;
+}
+@keyframes sparkleTwinkle{
+  0%,100%{opacity:0;transform:scale(.5)}
+  45%{opacity:.9;transform:scale(1)}
+  60%{opacity:.35;transform:scale(.7)}
+}
+@media(prefers-reduced-motion:reduce){
+  .icon-calendar,
+  .icon-gift,
+  .icon-song,
+  .sparkle{animation:none}
+  .sparkle{opacity:.35}
+}
+
+@media(max-width:600px){
+  .invite{box-shadow:none}
+  .section{min-height:455px;padding:54px 22px}
+  .hero{min-height:820px}
+  .space{height:36px}
+  .hero-line{gap:12px}
+  .countdown{gap:6px}
+  .counter span{font-size:9px}
+  .disco-band{min-height:270px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sparkles" id="sparkles" aria-hidden="true"></div>
+
+<div class="invite">
+
+  <section class="section hero">
+    <div class="inner hero-copy reveal">
+      <div class="hero-line">
+        <span class="mis">MIS</span>
+        <span class="xv">XV</span>
+      </div>
+      <div class="hero-name" data-name>BRISA</div>
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section class="section metal statement">
+    <div class="inner reveal">
+      <div class="rule"></div>
+      <div class="statement-text">
+        TE INVITO A FESTEJAR ESTA<br>
+        NOCHE <strong>¡INOLVIDABLE!</strong>
+      </div>
+      <div class="rule bottom"></div>
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section class="section metal">
+    <div class="inner reveal">
+      <div class="icon icon-calendar">
+        <svg viewBox="0 0 100 100">
+          <rect x="19" y="27" width="62" height="56" rx="7"/>
+          <line x1="19" y1="43" x2="81" y2="43"/>
+          <line x1="33" y1="15" x2="33" y2="33"/>
+          <line x1="50" y1="15" x2="50" y2="33"/>
+          <line x1="67" y1="15" x2="67" y2="33"/>
+        </svg>
+      </div>
+      <h2>¿CUÁNDO?</h2>
+      <div class="big-data" data-date-text>14 DE NOVIEMBRE 2026</div>
+      <div class="time" data-time>20:00HS</div>
+
+      <div class="countdown">
+        <div class="counter"><strong id="days">00</strong><span>DÍAS</span></div>
+        <div class="counter"><strong id="hours">00</strong><span>HORAS</span></div>
+        <div class="counter"><strong id="minutes">00</strong><span>MIN</span></div>
+        <div class="counter"><strong id="seconds">00</strong><span>SEG</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="inner reveal">
+      <div class="icon icon-gift">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="48" r="27"/>
+          <path d="M23 48h54M50 21v54M33 28c7 8 10 17 10 20s-3 13-10 21M67 28c-7 8-10 17-10 20s3 13 10 21"/>
+        </svg>
+      </div>
+      <h2>¿DÓNDE?</h2>
+      <div class="location" data-place>CAMPING DE UPCN</div>
+      <button class="btn gray" id="mapsBtn" type="button">COMO LLEGAR</button>
+    </div>
+  </section>
+
+  <section class="section disco-band"></section>
+
+  <div class="space"></div>
+
+  <section class="section white">
+    <div class="inner reveal">
+      <div class="icon icon-song">
+        <svg viewBox="0 0 100 100">
+          <path d="M17 37L34 18h32l17 19-33 43z"/>
+          <path d="M17 37h66M34 18l16 19 16-19M50 37v43M30 37l20 43M70 37L50 80"/>
+        </svg>
+      </div>
+      <h2>DRESS CODE</h2>
+      <div class="dress-type" data-dress>ELEGANTE SPORT</div>
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section class="section metal">
+    <div class="inner reveal">
+      <div class="icon">
+        <svg viewBox="0 0 100 100">
+          <rect x="21" y="39" width="58" height="44"/>
+          <rect x="17" y="31" width="66" height="14"/>
+          <line x1="50" y1="31" x2="50" y2="83"/>
+          <path d="M50 30c-7-13-22-20-26-10-4 10 12 15 26 10zM50 30c7-13 22-20 26-10 4 10-12 15-26 10z"/>
+        </svg>
+      </div>
+      <h2>REGALOS</h2>
+      <div class="gift-copy">
+        NADA MÁS IMPORTANTE QUE TU PRESENCIA,
+        PERO SI DESEAS HACERME UN PRESENTE
+        PUEDES DEPOSITARLO EN LA SIGUIENTE CUENTA
+      </div>
+      <button class="btn" id="accountBtn" type="button">VER CUENTA</button>
+
+      <div class="account-box" id="accountBox">
+        <div class="label">ALIAS</div>
+        <div class="value" data-alias>brisa.arias4</div>
+        <div class="label">CBU</div>
+        <div class="value" data-cbu>0000003100051489935378</div>
+        <button class="btn" id="copyBtn" type="button">COPIAR CBU</button>
+        <div class="feedback" id="copyFeedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section class="section white">
+    <div class="inner reveal">
+      <div class="icon">
+        <svg viewBox="0 0 100 100">
+          <path d="M38 73V25l40-8v48"/>
+          <ellipse cx="29" cy="74" rx="12" ry="8"/>
+          <ellipse cx="69" cy="66" rx="12" ry="8"/>
+        </svg>
+      </div>
+      <h2>RECOMENDÁ UNA CANCIÓN</h2>
+      <div class="small">¿QUÉ CANCIÓN NO PUEDE FALTAR ESTA NOCHE?</div>
+      <div class="playlist">
+        <input id="song" placeholder="Canción">
+        <input id="artist" placeholder="Artista">
+        <button class="btn gray" id="songBtn" type="button">ENVIAR SUGERENCIA</button>
+      </div>
+      <div class="feedback" id="songFeedback"></div>
+    </div>
+  </section>
+
+  <section class="section gallery-section">
+    <div class="inner reveal">
+      <h2>MIS FOTOS</h2>
+      <div class="small">ALGUNOS MOMENTOS ESPECIALES</div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section class="section metal">
+    <div class="inner reveal">
+      <div class="icon">
+        <svg viewBox="0 0 100 100">
+          <rect x="15" y="25" width="70" height="50" rx="6"/>
+          <path d="M17 29l33 26 33-26"/>
+        </svg>
+      </div>
+      <h2>CONFIRMÁ TU ASISTENCIA</h2>
+      <div class="deadline">
+        ANTES DEL <span data-deadline>30 DE SEPTIEMBRE 2026</span>
+      </div>
+      <button class="btn whitebtn" id="confirmBtn" type="button">CONFIRMAR ASISTENCIA</button>
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section class="section metal end">
+    <div class="inner reveal">
+      <div class="end-copy">TE ESPERO♡</div>
+    </div>
+  </section>
+
+</div>
+
+<audio id="audio" loop preload="metadata">
+  <source src="David Guetta Memories.mp3" type="audio/mpeg">
+  <source src="David Guetta Memories.mp3.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn" type="button" title="Música">♪</button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button">×</button>
+  <img id="lightboxImg" alt="Foto ampliada">
+</div>
+
+<script>
+const CONFIG = {
+  nombre: "BRISA",
+  fechaISO: "2026-11-14T20:00:00",
+  fechaTexto: "14 DE NOVIEMBRE 2026",
+  horaTexto: "20:00HS",
+  lugar: "CAMPING DE UPCN",
+  mapsURL: "https://maps.app.goo.gl/aucyJMRpEDrjUJbv7",
+  dressCode: "ELEGANTE SPORT",
+  alias: "brisa.arias4",
+  cbu: "0000003100051489935378",
+  fechaLimite: "30 DE SEPTIEMBRE 2026",
+  whatsapp: "5492213516687",
+  mensajeWhatsApp: "Hola! Confirmo mi asistencia a los XV de Brisa.",
+  gallery: [
+    "bri 2.png",
+    "bri 3.png",
+    "bri chiquita.png",
+    "brisa vestido violeta 1.png"
+  ]
+};
+
+for(let i=0;i<28;i++){
+  const sparkle=document.createElement("span");
+  sparkle.className="sparkle";
+  sparkle.style.setProperty("--size",(Math.random()*4+2)+"px");
+  sparkle.style.setProperty("--left",(Math.random()*100)+"%");
+  sparkle.style.setProperty("--top",(Math.random()*100)+"%");
+  sparkle.style.setProperty("--duration",(Math.random()*2+2.5)+"s");
+  sparkle.style.setProperty("--delay",(Math.random()*3)+"s");
+  sparkles.appendChild(sparkle);
+}
+
+document.querySelectorAll("[data-name]").forEach(x=>x.textContent=CONFIG.nombre);
+document.querySelectorAll("[data-date-text]").forEach(x=>x.textContent=CONFIG.fechaTexto);
+document.querySelectorAll("[data-time]").forEach(x=>x.textContent=CONFIG.horaTexto);
+document.querySelectorAll("[data-place]").forEach(x=>x.textContent=CONFIG.lugar);
+document.querySelectorAll("[data-dress]").forEach(x=>x.textContent=CONFIG.dressCode);
+document.querySelectorAll("[data-alias]").forEach(x=>x.textContent=CONFIG.alias);
+document.querySelectorAll("[data-cbu]").forEach(x=>x.textContent=CONFIG.cbu);
+document.querySelectorAll("[data-deadline]").forEach(x=>x.textContent=CONFIG.fechaLimite);
+
+const target=new Date(CONFIG.fechaISO).getTime();
+function tick(){
+  const diff=Math.max(0,target-Date.now());
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  days.textContent=String(d).padStart(2,"0");
+  hours.textContent=String(h).padStart(2,"0");
+  minutes.textContent=String(m).padStart(2,"0");
+  seconds.textContent=String(s).padStart(2,"0");
+}
+tick();
+setInterval(tick,1000);
+
+mapsBtn.addEventListener("click",()=>window.open(CONFIG.mapsURL,"_blank"));
+
+accountBtn.addEventListener("click",()=>accountBox.classList.toggle("open"));
+copyBtn.addEventListener("click",async()=>{
+  try{
+    await navigator.clipboard.writeText(CONFIG.cbu);
+    copyFeedback.textContent="CBU copiado";
+  }catch{
+    copyFeedback.textContent="CBU: "+CONFIG.cbu;
+  }
+});
+
+songBtn.addEventListener("click",()=>{
+  const s=song.value.trim();
+  const a=artist.value.trim();
+  songFeedback.textContent=s ? "¡Gracias! "+s+(a?" — "+a:"") : "Escribí una canción.";
+});
+
+CONFIG.gallery.forEach((src,i)=>{
+  const wrap=document.createElement("div");
+  wrap.className="photo";
+  if(src){
+    const img=document.createElement("img");
+    img.src=src;
+    img.alt="Foto "+(i+1);
+    img.loading="lazy";
+    img.addEventListener("click",()=>{
+      lightboxImg.src=src;
+      lightbox.classList.add("open");
+    });
+    wrap.appendChild(img);
+  }else{
+    wrap.textContent="FOTO "+String(i+1).padStart(2,"0");
+  }
+  gallery.appendChild(wrap);
+});
+
+lightboxClose.addEventListener("click",()=>lightbox.classList.remove("open"));
+lightbox.addEventListener("click",e=>{
+  if(e.target===lightbox) lightbox.classList.remove("open");
+});
+
+confirmBtn.addEventListener("click",()=>{
+  const msg=encodeURIComponent(CONFIG.mensajeWhatsApp);
+  window.open("https://wa.me/"+CONFIG.whatsapp+"?text="+msg,"_blank");
+});
+
+let playing=false;
+musicBtn.addEventListener("click",async()=>{
+  if(playing){
+    audio.pause();
+    playing=false;
+    musicBtn.classList.remove("playing");
+    musicBtn.textContent="♪";
+  }else{
+    try{
+      await audio.play();
+      playing=true;
+      musicBtn.classList.add("playing");
+      musicBtn.textContent="Ⅱ";
+    }catch(e){
+      musicBtn.textContent="!";
+      musicBtn.title="No se pudo reproducir la canción. Verificá el formato del archivo.";
+    }
+  }
+});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add("show");
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

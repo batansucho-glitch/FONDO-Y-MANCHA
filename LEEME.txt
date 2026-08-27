@@ -1,0 +1,14 @@
+BRISA XV - VERSIÓN CORREGIDA SIN FRANJAS
+
+Esta versión corrige específicamente:
+- Eliminación total de los números '14' fantasma.
+- Eliminación de las tres franjas verticales.
+- El fondo plateado ya NO usa una imagen repetida.
+- El fondo metálico ahora se genera directamente con CSS.
+- Se mantienen las bolas de espejo, música, botones, cuenta regresiva y demás secciones.
+- No hace falta editar nada para visualizarla.
+
+CÓMO USAR:
+1. Descomprimir toda la carpeta.
+2. Abrir index.html con Live Server o directamente con Chrome/Edge.
+3. Usar esta carpeta nueva; no mezclarla con versiones anteriores.
