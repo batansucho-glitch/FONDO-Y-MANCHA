@@ -340,6 +340,20 @@ h2{
   font-weight:300;
   text-transform:uppercase;
 }
+.heartbeat{
+  display:inline-block;
+  margin-left:.5em;
+  font-size:1.18em;
+  animation:heartbeat 1.15s ease-in-out infinite;
+  transform-origin:center;
+}
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  15%{transform:scale(1.18)}
+  30%{transform:scale(1)}
+  45%{transform:scale(1.1)}
+  60%{transform:scale(1)}
+}
 
 /* AUDIO */
 .music-btn{
@@ -429,6 +443,7 @@ h2{
   .icon-calendar,
   .icon-gift,
   .icon-song,
+  .heartbeat,
   .sparkle{animation:none}
   .sparkle{opacity:.35}
 }
@@ -605,7 +620,7 @@ h2{
 
   <section class="section metal end">
     <div class="inner reveal">
-      <div class="end-copy">TE ESPERO♡</div>
+      <div class="end-copy">TE ESPERO<span class="heartbeat" aria-label="corazón">♡</span></div>
     </div>
   </section>
 
